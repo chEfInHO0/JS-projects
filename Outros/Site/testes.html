@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/templateTeste.css">
+</head>
+<body>
+    <div class="pai">
+        <div class="filho a"></div>
+        <div class="filho b"></div>
+        <div class="filho c"></div>
+        <div class="filho d"></div>
+    </div>
+    <script>
+        const sonA = document.querySelector('.a')
+        const sonB = document.querySelector('.b')
+        const sonC = document.querySelector('.c')
+        const sonD = document.querySelector('.d')
+
+        sonA.onmouseover = () => {
+            sonB.classList.add('vanish')
+            sonC.classList.add('vanish')
+            sonD.classList.add('vanish')
+        }
+        sonA.onmouseout = () => {
+            sonB.classList.remove('vanish')
+            sonC.classList.remove('vanish')
+            sonD.classList.remove('vanish')
+        }
+    </script>
+</body>
+</html>
