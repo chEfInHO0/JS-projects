@@ -17,17 +17,25 @@
                 Bem vindo(a), como podemos te ajudar <span class="morfo"></span><span class="digit"></span>?
             </h1>
         </header>
+        <h3>
+            <ul class="menu">
+                <li onclick="window.location.assign('http://127.0.0.1:5500/Outros/Site/index.html')">Home</li>
+                <li>Sobre</li>
+                <li>Contato</li>
+                <a href=""><li>Solicitar Orçamento</li></a>
+            </ul>
+        </h3>
     </div>
     <form action="">
     <div class="container">
         <label for="type">
             <legend>Tipo do Contratante: </legend>
             <div class="select-field">
-                <input type="radio" id="empresa" name="type" value="Empresa" required>
+                <input type="radio" onclick="changeType(this)" id="empresa" name="type" value="da Empresa" required>
                 <label for="empresa" class="point">Empresa</label>
-                <input type="radio" id="condominio" name="type" value="Condominio" required>
+                <input type="radio" onclick="changeType(this)" id="condominio" name="type" value="do Condominio" required>
                 <label for="condominio" class="point">Condominio</label>
-                <input type="radio" id="outro" name="type" value="Outro" required>
+                <input type="radio" onclick="changeType(this)" id="outro" name="type" value="do Comercio" required>
                 <label for="outro" class="point">Outro</label>
             </div>
         </label><br><br>
@@ -36,7 +44,7 @@
             <input class="text-field" type="text" id="name" required>
         </label><br><br>
         <label for="cname">
-            <legend>Nome da Empresa: </legend>
+            <legend>Nome <span class="type">da Empresa</span>: </legend>
             <input class="text-field" type="text" id="cname" required>
         </label><br><br>
         <label for="email">

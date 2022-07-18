@@ -1,4 +1,6 @@
 const morfo = document.querySelector('.morfo')
+const type = document.querySelector('.type')
+let typeDefault = 'da Empresa'
 let nextWords = ['hoje','amanhã','e sempre']
 let lastWordKnow = null
 let letters = null
@@ -7,29 +9,23 @@ let mimic = []
 let holder = null
 let x = null
 let y = null
+let count = null
 
 function cleanWord(){
     let w = morfo.innerHTML
     let array = w.split("")
-    if(array.length == 0){
-        window.clearInterval()
-        writeWord()
-    }else{
-        array.splice((w.length-1),1)
-        console.log(array)
-        w = array.join('')
-        morfo.innerHTML = w
-    }
+    array.splice((w.length-1),1)
+    w = array.join('')
+    morfo.innerHTML = w
     if(morfo.innerHTML == ''){
+        count ++
+    }
+    if(count == 3){
+        count = 0
         nextWord()
         clearInterval(y)
-        x = setInterval(prepareWord,800)
-        console.log('AGAIN')
-    }
-}
-function getWord(){
-    let word = lastWordKnow.split("")
-
+        x = setInterval(prepareWord,500)
+    }   
 }
 function setWord(){
     if (lastWordKnow == null){
@@ -58,14 +54,14 @@ function prepareWord(){
     letter = letters.splice(0,1)
     holder = letters.join("")
     morfo.innerHTML = morfo.innerHTML.concat(letter)
-    if(letter.length === 0){
-        nextWord()
-        window.clearInterval(x)
-    }
     if(lastWordKnow.length == morfo.innerHTML.length){
+        count++
+
+    }
+    if (count == 3){
+        count = 0
         window.clearInterval(x)
-        y = setInterval(cleanWord,1000)
-        console.log('again')
+        y = setInterval(cleanWord,400)
     }
 }
 function checkVars(){
@@ -74,5 +70,10 @@ function checkVars(){
     console.log('Letra Atual: ',letter)
     console.log('Variavel de Seg: ',holder)
 }
-    
-x = setInterval(prepareWord,800)
+
+function changeType(btn){
+    if(btn.checked){
+        type.innerHTML = btn.value
+    }
+}
+x = setInterval(prepareWord,500)

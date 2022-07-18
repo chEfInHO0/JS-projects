@@ -27,7 +27,7 @@ legend{
     display: grid;
     grid-template-columns: repeat(4,200px);
     margin-bottom: 80px;
-    background-color: #aaa;
+    background-color: lightblue;
 }
 .text-field,select,#details,option{
     outline: 0;
@@ -78,14 +78,16 @@ legend{
     color: #FFF;
 }
 .area-holder{
+    height: 250px;
     width: 100%;
-    background-color: lightblue;
+    background-color: #354259;
+    color: #fff;
 }
 .morfo{
     transition: 0.5s all ;
 }
 .digit{
-    border-right: 2px solid #000;
+    border-right: 2px solid #fff;
     margin-right: 10px;
     transition: 0.5s all ;
     animation: blink 1s linear infinite;
@@ -101,6 +103,24 @@ legend{
 .text-field,#srv,#details{
     border: 0.5px solid;
     border-radius: 10px;
+}
+.menu{
+    padding: 0;
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    border: 1px solid #fff;
+    justify-content: space-evenly;
+}
+.menu li{
+    transition: 0.2s all;
+    text-align: center;
+    flex: 1;
+    border: 1px solid#fff;
+}
+.menu li:hover{
+    background-color: #FFF;
+    color: #354259;
 }
 @media only screen and (max-width: 1050px) {
     .container{
